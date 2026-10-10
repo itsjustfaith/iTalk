@@ -7,4 +7,4 @@ const router = express.Router();
 // /api/auth/check
 router.get("/check", protectRoute, checkAuth)
 
-export default router
+export default router;
