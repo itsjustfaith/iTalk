@@ -10,7 +10,7 @@ import { upload } from "../middleware/upload.middleware.js";
 
 const router = express.Router();
 
-router.user(protectRoute);
+router.use(protectRoute);
 
 // /api/auth/check
 router.get("/users", getUsersForSidebar);
