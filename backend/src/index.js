@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import { clerkMiddleware } from "@clerk/express";
 import cors from "cors";
+import job from "./lib/cron.js";
 
 import User from "./models/user.model.js";
 import { connectDB } from "./lib/db.js";
@@ -31,4 +32,8 @@ if (fs.existsSync(publicDir)) {
 app.listen(PORT, () => {
   connectDB();
   console.log("Server is listening and running on PORT:", PORT);
+
+  if (process.env.NODE_ENV === "production") {
+  job.start()
+  }
 });
