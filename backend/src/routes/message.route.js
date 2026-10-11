@@ -16,6 +16,6 @@ router.use(protectRoute);
 router.get("/users", getUsersForSidebar);
 router.get("/conversations", getConversationsForSidebar);
 router.get("/:id", getMessages);
-router.get("/send/:id", upload.single("media"), sendMessage);//user can send only a single file in a message.
+router.post("/send/:id", upload.single("media"), sendMessage); //user can send only a single file in a message.
 
 export default router;

@@ -1,6 +1,5 @@
 import { Avatar, Button } from "@heroui/react";
-import { ChevronLeftIcon, Volume2Icon, VolumeXIcon, XIcon } from "lucide-react";
-import { AppLogo } from "../AppLogo";
+import { ChevronLeftIcon, XIcon } from "lucide-react";
 import { AvatarWithOnlineIndicator } from "./AvatarWithOnlineIndicator";
 
 import { ThemePresetPicker } from "../ThemePresetPicker";
@@ -12,9 +11,7 @@ import { useChatStore } from "../../store/useChatStore";
 import { useSelectedConversation } from "../../hooks/useSelectedConversation";
 
 export function ChatHeader() {
-  const isSoundEnabled = useChatStore((state) => state.isSoundEnabled);
   const setActiveConversationId = useChatStore((state) => state.setActiveConversationId);
-  const setSoundEnabled = useChatStore((state) => state.setSoundEnabled);
 
   const { activeConversation, isLargeScreen } = useSelectedConversation();
 
@@ -61,7 +58,6 @@ export function ChatHeader() {
         </>
       ) : (
         <div className="flex flex-1 items-center gap-2.5 sm:text-left">
-          <AppLogo size={36} className="rounded-[9px]" />
           <div className="flex-1 text-center sm:text-left">
             <p className="truncate text-[13px] font-medium text-muted">Select a conversation</p>
           </div>
@@ -75,21 +71,6 @@ export function ChatHeader() {
         </div>
 
         <ThemeToggle />
-
-        <Button
-          variant="ghost"
-          size="sm"
-          isIconOnly
-          className="shrink-0"
-          aria-pressed={isSoundEnabled}
-          onPress={() => setSoundEnabled(!isSoundEnabled)}
-        >
-          {isSoundEnabled ? (
-            <Volume2Icon className="size-5.5" strokeWidth={2} aria-hidden />
-          ) : (
-            <VolumeXIcon className="size-5.5" strokeWidth={2} aria-hidden />
-          )}
-        </Button>
 
         {activeConversation ? (
           <Button
