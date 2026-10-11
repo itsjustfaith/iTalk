@@ -1,3 +1,4 @@
+iTalk is a real-time chat application built with React, Express, MongoDB, Socket.IO, and Clerk. 
 
 <img width="456" height="411" alt="image" src="https://github.com/user-attachments/assets/e6db72e8-ae2b-4818-844a-ea69ef91cdff" />
 
